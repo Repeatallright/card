@@ -30,7 +30,7 @@ scene.addEventListener("click", () => {
 window.onload = () => {
   setTimeout(() => {
     document.querySelector(".box__face--front").style.backgroundImage =
-      "url(./card2.png)";
+      "url(./card3.png)";
     box.style.boxShadow = "none";
   }, 500);
 
