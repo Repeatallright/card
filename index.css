@@ -1,0 +1,128 @@
+body { 
+font-family: sans-serif;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+width: 100vw;
+
+overflow: hidden;
+margin: 0; 
+padding: 0;
+background-color: rgba(0,0,0,0.7);
+transition: 2s ;
+background-color: #525252;
+
+}
+
+.version{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 16px;
+}
+
+.scene {
+  width: 340px;
+  height: 188px;
+  
+}
+
+.right_header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 342px;
+  height: 189px;
+  position: absolute;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  font-size: 22px;
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  overflow: hidden;
+
+
+  
+}
+.slogan{
+  border-top: 1px solid #000000;
+  border-bottom: 1px solid #000000;
+  font-weight: bold;
+
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.box {
+  width: 342px;
+  height: 189px;
+  transform-style: preserve-3d;
+  transform: translateZ(-100px);
+  transition: transform 2s;
+  box-shadow: 5px 5px 15px -4px rgba(0,0,0,0.5);
+  position: absolute;
+
+
+}
+
+.box.show-front  { transform:  rotateY(   0deg); }
+.box.show-back   { transform:  rotateY(-180deg); }
+.box.show-right  { transform:  rotateY( -90deg); }
+.box.show-left   { transform:  rotateY(  -270deg); }
+.box.show-top    { transform: translateZ(-100px) rotateX( -90deg); } 
+ .box.show-bottom { transform: translateZ(-100px) rotateX(  90deg); } 
+
+
+.box__face {
+  position: absolute;
+  font-size: 40px;
+  font-weight: bold;
+  color: rgb(196, 196, 196);
+  text-align: center;
+}
+
+.box__face--front,
+.box__face--back {
+  width: 341px;
+  height: 189px;
+  line-height: 188px;
+}
+
+.box__face--right,
+.box__face--left {
+  width: 4px;
+  height: 188px;
+  left: 148.5px;
+  line-height: 188px;
+}
+
+.box__face--top,
+.box__face--bottom {
+  width: 340px;
+  height: 4px;
+  top: 99.5px;
+  line-height: 100px;
+}
+
+.box__face--front  { background-image: url(./1_2.jpeg); }
+.box__face--right  { background-color: rgb(85, 85, 85); } 
+.box__face--back   { background-image: url(./1_1.jpeg); }
+.box__face--left   { background-color: rgb(85, 85, 85); } 
+.box__face--top    { background-color: rgb(85, 85, 85); } 
+.box__face--bottom { background-color: rgb(85, 85, 85); } 
+
+.box__face--front  { transform: rotateY(  0deg) translateZ( 2px); }
+.box__face--back   { transform: rotateY(180deg) translateZ( 2px); }
+
+.box__face--right  { transform: rotateY( 90deg) translateZ(188px); }
+.box__face--left   { transform: rotateY(-90deg) translateZ(150px); }
+
+.box__face--top    { transform: rotateX( 90deg) translateZ(100px); }
+.box__face--bottom { transform: rotateX(-90deg) translateZ(88px); }
+
+label { margin-right: 10px; }
