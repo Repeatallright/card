@@ -1,6 +1,7 @@
 let scene = document.querySelector(".scene");
 let box = document.querySelector(".box");
 let right_header = document.querySelector(".right_header");
+
 let deg = 0;
 let w = document.querySelector("body").clientWidth;
 let h = document.querySelector("body").clientHeight;
@@ -37,12 +38,18 @@ window.onload = () => {
   document.querySelector("body").style.backgroundColor = "rgba(0,0,0,0)";
   // Turning
   deg -= 360;
+
   right_header.style.transform = `
   
   translateY(-${h / 2 - elementH / (2 / logoSize()) - 15}px) 
   translateX(${w / 2 - elementW / (2 / logoSize()) - 15}px)
   scale(${logoSize() * 100}%)
   `;
+
+  setTimeout(() => {
+    right_header.style.transition = "2s";
+    right_header.style.opacity = "100%";
+  }, 2000);
 
   box.style.transform = `
   
