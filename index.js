@@ -31,7 +31,7 @@ scene.addEventListener("click", () => {
 window.onload = () => {
   setTimeout(() => {
     document.querySelector(".box__face--front").style.backgroundImage =
-      "url(./card3.png)";
+      "url(./card2.png)";
     box.style.boxShadow = "none";
   }, 500);
 
@@ -64,6 +64,8 @@ window.onload = () => {
     box.style.boxShadow = "-5px 5px 15px -4px rgba(0,0,0,0.5)";
   if (deg % 360 == 0) box.style.boxShadow = "5px 5px 15px -4px rgba(0,0,0,0.5)";
 };
+
+console.log("Hellow world");
 
 function logoSize() {
   return (w * settings.logoScale) / elementW;

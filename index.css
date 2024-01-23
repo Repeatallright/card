@@ -90,6 +90,7 @@ box-sizing: border-box;
  .box.show-bottom { transform: translateZ(-100px) rotateX(  90deg); } 
 
 
+ 
 .box__face {
   position: absolute;
   font-size: 40px;
