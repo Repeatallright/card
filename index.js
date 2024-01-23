@@ -47,7 +47,7 @@ window.onload = () => {
   `;
 
   setTimeout(() => {
-    right_header.style.transition = "2s";
+    right_header.style.transition = "1s";
     right_header.style.opacity = "100%";
   }, 2000);
 
