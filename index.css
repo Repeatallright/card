@@ -12,8 +12,7 @@ padding: 0;
 transition: 2s ;
 box-sizing: border-box;
 z-index: 3;
-background: url('./me.jpg') no-repeat ;
-background-size: cover;
+
 }
 
 
@@ -28,6 +27,22 @@ background-size: cover;
   font-size: 50px;
   font-weight: bold;
   text-align: center;
+  opacity: 0;
+}
+.global_filter{
+  background-color: rgba(0,0,0,0.5);
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  z-index: 2;
+  transition: 2s;
+}
+.global_img{
+  background: url('./me.jpg') no-repeat ;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
   opacity: 0;
 }
 

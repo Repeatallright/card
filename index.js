@@ -2,6 +2,8 @@ let scene = document.querySelector(".scene");
 let box = document.querySelector(".box");
 let right_header = document.querySelector(".right_header");
 let main_slogan = document.querySelector(".text");
+let global_filter = document.querySelector(".global_filter");
+let global_img = document.querySelector(".global_img");
 
 let deg = 0;
 let w = document.querySelector("body").clientWidth;
@@ -35,6 +37,7 @@ window.onload = () => {
       "url(./card2.png)";
     box.style.boxShadow = "none";
   }, 500);
+  global_filter.style.backgroundColor = "rgba(0,0,0,0)";
 
   // Turning
   deg -= 360;
@@ -51,9 +54,13 @@ window.onload = () => {
     right_header.style.opacity = "80%";
   }, 2000);
   setTimeout(() => {
+    global_img.style.transition = "1s";
+    global_img.style.opacity = "100%";
+  }, 2500);
+  setTimeout(() => {
     main_slogan.style.transition = "1s";
     main_slogan.style.opacity = "80%";
-  }, 2500);
+  }, 3000);
 
   box.style.transform = `
   
