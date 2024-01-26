@@ -36,7 +36,8 @@ window.onload = () => {
     box.style.boxShadow = "none";
   }, 500);
 
-  document.querySelector("body").style.backgroundColor = "rgba(0,0,0,0)";
+  document.querySelector(".global_filter").style.backgroundColor =
+    "rgba(0,0,0,0)";
   // Turning
   deg -= 360;
 
