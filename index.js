@@ -1,6 +1,7 @@
 let scene = document.querySelector(".scene");
 let box = document.querySelector(".box");
 let right_header = document.querySelector(".right_header");
+let main_slogan = document.querySelector(".text");
 
 let deg = 0;
 let w = document.querySelector("body").clientWidth;
@@ -48,8 +49,12 @@ window.onload = () => {
 
   setTimeout(() => {
     right_header.style.transition = "1s";
-    right_header.style.opacity = "100%";
+    right_header.style.opacity = "80%";
   }, 2000);
+  setTimeout(() => {
+    main_slogan.style.transition = "1s";
+    main_slogan.style.opacity = "80%";
+  }, 2500);
 
   box.style.transform = `
   
