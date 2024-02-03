@@ -199,8 +199,13 @@ label { margin-right: 10px; }
 
 
 .error_window_size{
-  font-size: 36px;
-  color: #000000;
-  opacity: .7;
-  transition: 5s;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 50px;
+  font-weight: bold;
+  z-index: 3;
+  opacity: 0;
 }

@@ -86,8 +86,10 @@ logoSize();
 function sloganEffect(element) {
   let main = document.querySelector("." + element);
   main.style.opacity = "100%";
+  console.log(main);
 
   let slogans = [...main.innerHTML];
+
   main.innerHTML = "";
 
   let word = document.createElement("div");
@@ -130,10 +132,9 @@ function checkSize() {
     contentBclock.innerHTML = "";
     let errorBlock = document.createElement("div");
     errorBlock.classList.add("error_window_size");
-    errorBlock.innerHTML = "Error";
+    errorBlock.innerHTML = "Error: Your page is too wide ;)";
     contentBclock.appendChild(errorBlock);
-    sloganEffect('error_window_size')
+
+    sloganEffect("error_window_size");
   }
 }
-
-checkSize();
