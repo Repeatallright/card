@@ -16,7 +16,7 @@ const settings = {
 };
 
 // Turning on click function
-scene.addEventListener("click", () => {
+let sceneEventFunction = () => {
   // Turning
   deg -= 360;
   box.style.transform = `
@@ -29,9 +29,9 @@ scene.addEventListener("click", () => {
   `;
 
   // Moming
-});
+};
 
-window.onload = () => {
+let windowOnloadFunction = () => {
   setTimeout(() => {
     document.querySelector(".box__face--front").style.backgroundImage =
       "url(./card2.png)";
@@ -60,7 +60,7 @@ window.onload = () => {
   setTimeout(() => {
     // main_slogan.style.transition = "1s";
     // main_slogan.style.opacity = "80%";
-    sloganEffect();
+    sloganEffect("slogan");
   }, 3000);
 
   box.style.transform = `
@@ -75,6 +75,7 @@ window.onload = () => {
     box.style.boxShadow = "-5px 5px 15px -4px rgba(0,0,0,0.5)";
   if (deg % 360 == 0) box.style.boxShadow = "5px 5px 15px -4px rgba(0,0,0,0.5)";
 };
+window.onload = checkSize;
 
 function logoSize() {
   return (w * settings.logoScale) / elementW;
@@ -82,8 +83,8 @@ function logoSize() {
 
 logoSize();
 
-function sloganEffect() {
-  let main = document.querySelector(".slogan");
+function sloganEffect(element) {
+  let main = document.querySelector("." + element);
   main.style.opacity = "100%";
 
   let slogans = [...main.innerHTML];
@@ -119,3 +120,20 @@ function sloganEffect() {
     }
   });
 }
+
+function checkSize() {
+  if (document.querySelector("body").clientWidth < 800) {
+    scene.addEventListener("click", sceneEventFunction);
+    window.onload = windowOnloadFunction;
+  } else {
+    let contentBclock = document.querySelector(".content");
+    contentBclock.innerHTML = "";
+    let errorBlock = document.createElement("div");
+    errorBlock.classList.add("error_window_size");
+    errorBlock.innerHTML = "Error";
+    contentBclock.appendChild(errorBlock);
+    sloganEffect('error_window_size')
+  }
+}
+
+checkSize();

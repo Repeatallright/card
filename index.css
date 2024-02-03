@@ -15,6 +15,22 @@ z-index: 1;
 
 }
 
+.content{
+  font-family: sans-serif;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100vh;
+width: 100vw;
+
+overflow: hidden;
+margin: 0; 
+padding: 0;
+transition: 2s ;
+box-sizing: border-box;
+z-index: 1;
+}
+
 
 
 .slogan{
@@ -179,3 +195,12 @@ z-index: 1;
 .box__face--bottom { transform: rotateX(-90deg) translateZ(88px); }
 
 label { margin-right: 10px; }
+
+
+
+.error_window_size{
+  font-size: 36px;
+  color: #000000;
+  opacity: .7;
+  transition: 5s;
+}
