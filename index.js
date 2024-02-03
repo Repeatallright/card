@@ -126,7 +126,7 @@ function sloganEffect(element) {
 function checkSize() {
   if (document.querySelector("body").clientWidth < 800) {
     scene.addEventListener("click", sceneEventFunction);
-    window.onload = windowOnloadFunction;
+    windowOnloadFunction();
   } else {
     let contentBclock = document.querySelector(".content");
     contentBclock.innerHTML = "";
