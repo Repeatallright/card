@@ -4,6 +4,7 @@ let right_header = document.querySelector(".right_header");
 let main_slogan = document.querySelector(".text2");
 let global_filter = document.querySelector(".global_filter");
 let global_img = document.querySelector(".global_img");
+let contentBclock = document.querySelector(".content");
 
 let deg = 0;
 let w = document.querySelector("body").clientWidth;
@@ -60,7 +61,7 @@ let windowOnloadFunction = () => {
   setTimeout(() => {
     // main_slogan.style.transition = "1s";
     // main_slogan.style.opacity = "80%";
-    sloganEffect("slogan");
+    sloganEffect(contentBclock, "slogan", "Welcome to the party");
   }, 3000);
 
   box.style.transform = `
@@ -75,20 +76,19 @@ let windowOnloadFunction = () => {
     box.style.boxShadow = "-5px 5px 15px -4px rgba(0,0,0,0.5)";
   if (deg % 360 == 0) box.style.boxShadow = "5px 5px 15px -4px rgba(0,0,0,0.5)";
 };
-window.onload = checkSize;
 
 function logoSize() {
   return (w * settings.logoScale) / elementW;
 }
 
-logoSize();
-
-function sloganEffect(element) {
-  let main = document.querySelector("." + element);
+function sloganEffect(parent, element, text) {
+  let main = document.createElement("div");
+  main.classList.add(element);
+  parent.appendChild(main);
   main.style.opacity = "100%";
   console.log(main);
 
-  let slogans = [...main.innerHTML];
+  let slogans = [...text];
 
   main.innerHTML = "";
 
@@ -114,7 +114,7 @@ function sloganEffect(element) {
       letter.innerHTML = item;
       setTimeout(() => {
         letter.style.opacity = "100%";
-      }, index * 80);
+      }, index * 40);
       word.appendChild(letter);
     }
     if (index + 1 == slogans.length) {
@@ -125,16 +125,35 @@ function sloganEffect(element) {
 
 function checkSize() {
   if (document.querySelector("body").clientWidth < 800) {
-    scene.addEventListener("click", sceneEventFunction);
-    windowOnloadFunction();
+    contentBclock.style.display = "flex";
+    setTimeout(() => {
+      scene.addEventListener("click", sceneEventFunction);
+      windowOnloadFunction();
+    }, 1);
   } else {
-    let contentBclock = document.querySelector(".content");
-    contentBclock.innerHTML = "";
-    let errorBlock = document.createElement("div");
-    errorBlock.classList.add("error_window_size");
-    errorBlock.innerHTML = "Error: Your page is too wide ;)";
-    contentBclock.appendChild(errorBlock);
+    setTimeout(() => {
+      contentBclock.innerHTML = "";
+      contentBclock.style.display = "flex";
+      let errorBlock = document.createElement("div");
+      errorBlock.classList.add("error_window_size");
+      contentBclock.appendChild(errorBlock);
+      sloganEffect(
+        contentBclock,
+        "error_window_size",
+        "Error: Your page is too wide ;)"
+      );
+    }, 100);
 
-    sloganEffect("error_window_size");
+    // setTimeout(() => {
+    //   contentBclock.innerHTML = "";
+    //   sloganEffect(
+    //     contentBclock,
+    //     "error_window_size",
+    //     "Only for mobile devices"
+    //   );
+    // }, 4000);
   }
 }
+
+window.onload = checkSize;
+logoSize();

@@ -17,7 +17,7 @@ z-index: 1;
 
 .content{
   font-family: sans-serif;
-display: flex;
+display: none;
 align-items: center;
 justify-content: center;
 height: 100vh;
@@ -52,7 +52,7 @@ z-index: 1;
   justify-content: center;
 }
 .letter{
-  transition: 1s;
+  transition: 2s;
   opacity: 0;
 }
 
@@ -199,6 +199,7 @@ label { margin-right: 10px; }
 
 
 .error_window_size{
+  color: rgba(0,0,0,1);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
