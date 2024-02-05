@@ -59,9 +59,10 @@ let windowOnloadFunction = () => {
     global_img.style.opacity = "100%";
   }, 2500);
   setTimeout(() => {
-    // main_slogan.style.transition = "1s";
-    // main_slogan.style.opacity = "80%";
     sloganEffect(contentBclock, "slogan", "Welcome to the party");
+    let sloganBlock = document.querySelector(".slogan");
+    sloganBlock.style.top = elementH * logoSize() * 1.4 + "px";
+    console.dir(box);
   }, 3000);
 
   box.style.transform = `
@@ -70,6 +71,7 @@ let windowOnloadFunction = () => {
   translateX(-${w / 2 - elementW / (2 / logoSize()) - 15}px)
   rotateY(${deg}deg)
   scale(${logoSize() * 100}%)
+
   `;
 
   if (deg % 180 == 0 && deg % 360 != 0)
@@ -81,7 +83,7 @@ function logoSize() {
   return (w * settings.logoScale) / elementW;
 }
 
-function sloganEffect(parent, element, text) {
+function sloganEffect(parent, element, text, func = 0) {
   let main = document.createElement("div");
   main.classList.add(element);
   parent.appendChild(main);
