@@ -16,17 +16,19 @@ const settings = {
   logoScale: 0.45,
 };
 
+function setInitialLogoSize() {
+  box.style.transform = `
+  translateY(0)
+  translateX(0)
+  rotate(0)
+  scale(${(w / elementW) * 100}%)`;
+}
+
 // Turning on click function
 let sceneEventFunction = () => {
   // Turning
-  deg -= 360;
   box.style.transform = `
-  
-  translateY(-${h / 2 - elementH / (2 / logoSize()) - 15}px) 
-  translateX(-${w / 2 - elementW / (2 / logoSize()) - 15}px)
-  rotateY( ${deg}deg)
   scale(${logoSize() * 100}%)
-  
   `;
 
   // Moming
@@ -43,36 +45,34 @@ let windowOnloadFunction = () => {
   // Turning
   deg -= 360;
 
-  right_header.style.transform = `
-  
-  translateY(-${h / 2 - elementH / (2 / logoSize()) - 15}px) 
-  translateX(${w / 2 - elementW / (2 / logoSize()) - 15}px)
+  box.style.transform = `
+  translateY(-${h / 2 - elementH / (2 / logoSize()) - 15}px)
+  translateX(-${w / 2 - elementW / (2 / logoSize()) - 15}px)
+  rotateY(${deg}deg)
   scale(${logoSize() * 100}%)
   `;
 
+  right_header.style.transform = `
+  translateY(-${h / 2 - elementH / (2 / logoSize()) - 15}px)
+  translateX(${w / 2 - elementW / (2 / logoSize()) - 15}px)
+  scale(${logoSize() * 100}%)
+  `;
+  ////////////////
   setTimeout(() => {
     right_header.style.transition = "1s";
     right_header.style.opacity = "80%";
   }, 2000);
+
   setTimeout(() => {
     global_img.style.transition = "1s";
     global_img.style.opacity = "100%";
   }, 2500);
+
   setTimeout(() => {
     sloganEffect(contentBclock, "slogan", "Welcome to the party");
     let sloganBlock = document.querySelector(".slogan");
     sloganBlock.style.top = elementH * logoSize() * 1.4 + "px";
-    console.dir(box);
   }, 3000);
-
-  box.style.transform = `
-  
-  translateY(-${h / 2 - elementH / (2 / logoSize()) - 15}px) 
-  translateX(-${w / 2 - elementW / (2 / logoSize()) - 15}px)
-  rotateY(${deg}deg)
-  scale(${logoSize() * 100}%)
-
-  `;
 
   if (deg % 180 == 0 && deg % 360 != 0)
     box.style.boxShadow = "-5px 5px 15px -4px rgba(0,0,0,0.5)";
@@ -87,8 +87,6 @@ function sloganEffect(parent, element, text, func = 0) {
   let main = document.createElement("div");
   main.classList.add(element);
   parent.appendChild(main);
-  main.style.opacity = "100%";
-  console.log(main);
 
   let slogans = [...text];
 
@@ -128,10 +126,12 @@ function sloganEffect(parent, element, text, func = 0) {
 function checkSize() {
   if (document.querySelector("body").clientWidth < 800) {
     contentBclock.style.display = "flex";
+    setInitialLogoSize();
     setTimeout(() => {
+      box.style.transition = "2s";
       scene.addEventListener("click", sceneEventFunction);
       windowOnloadFunction();
-    }, 1);
+    }, 100);
   } else {
     setTimeout(() => {
       contentBclock.innerHTML = "";
@@ -145,17 +145,9 @@ function checkSize() {
         "Error: Your page is too wide ;)"
       );
     }, 100);
-
-    // setTimeout(() => {
-    //   contentBclock.innerHTML = "";
-    //   sloganEffect(
-    //     contentBclock,
-    //     "error_window_size",
-    //     "Only for mobile devices"
-    //   );
-    // }, 4000);
   }
 }
 
+//////////////////////////// ONLOAD ////////////////////////////
+
 window.onload = checkSize;
-logoSize();
