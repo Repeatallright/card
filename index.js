@@ -27,7 +27,11 @@ function setInitialLogoSize() {
 // Turning on click function
 let sceneEventFunction = () => {
   // Turning
+  deg -= 360;
   box.style.transform = `
+  translateY(-${h / 2 - elementH / (2 / logoSize()) - 15}px)
+  translateX(-${w / 2 - elementW / (2 / logoSize()) - 15}px)
+  rotateY(${deg}deg)
   scale(${logoSize() * 100}%)
   `;
 
