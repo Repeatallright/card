@@ -73,7 +73,7 @@ let windowOnloadFunction = () => {
   }, 2500);
 
   setTimeout(() => {
-    sloganEffect(contentBclock, "slogan", " Выйдешь за меня");
+    sloganEffect(contentBclock, "slogan", " Выйдешь за меня ?");
     let sloganBlock = document.querySelector(".slogan");
     sloganBlock.style.top = elementH * logoSize() * 1.4 + "px";
   }, 3000);
